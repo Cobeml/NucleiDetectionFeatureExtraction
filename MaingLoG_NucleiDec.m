@@ -25,7 +25,7 @@ clear all;
 
 %% %% add the function into MATLAB searching path and enter the test dataset
 p = mfilename('fullpath');
-t = findstr(p,'\');
+t = findstr(p,'/');
 p = p(1:t(end));
 addpath(p);
 cd(p);
