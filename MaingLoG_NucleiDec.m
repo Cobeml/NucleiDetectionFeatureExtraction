@@ -67,7 +67,7 @@ for index=1:length(list)
     end
     rs5=cs(:,1);cs5=cs(:,2);
     figure,imshow(I);
-    hold on,plot(cs5,rs5,'r+','MarkerSize',8,'LineWidth',2);
+    hold on,plot(cs5,rs5,'r+','MarkerSize',2,'LineWidth',2);
 end
 
 end

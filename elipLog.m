@@ -32,7 +32,20 @@ if sumh ~= 0,
     h  = h/sumh;
 end;
 % now calculate determinant of hessian
-%h1 = h.*(x.*x + y.*y - 2*std2)/(std2^2);
-hess = ((2*a*x+2*b*y).^2-2*a).*((2*c*y+2*b*x).^2-2*c) - ((2*a*x+2*b*y).*(2*b*x+2*c*y)-2*b).^2;
-h1 = h.*h.*hess;
-h2 = h1 - sum(h1(:))/prod(p2); % make the filter sum to zero
+Lxx = ((2*a*x+2*b*y).^2-2*a);
+Lyy = ((2*c*y+2*b*x).^2-2*c);
+Lxy = (2*a*x+2*b*y)*(2*b*x + 2*c*y) - 2*b;
+Lyx = -2*b + (2*b*x+2*c*y)*(2*a*x + 2*b*y);
+
+
+hess = Lxx*Lyy - Lxy*Lxy;
+
+%%
+h1 = h.*hess;
+
+%h2 = h1;
+h2 = h1 - sum(h1(:))/numel(h1);
+
+%hess = ((2*a*x+2*b*y).^2-2*a).*((2*c*y+2*b*x).^2-2*c) - ((2*a*x+2*b*y).*(2*b*x+2*c*y)-2*b).^2;
+%h1 = h.*h.*hess;
+%h2 = h1 - sum(h1(:))/prod(p2); % make the filter sum to zero
