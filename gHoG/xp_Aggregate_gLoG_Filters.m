@@ -29,7 +29,7 @@ for theta = 0: thetaStep : pi-thetaStep
     n=0;
     for sigmaX = largestSigma : sigmaStep: smallestSigma;
             for sigmaY = sigmaX : sigmaStep: smallestSigma;
-                h = -elipLog([round(kernelSize+1),round(kernelSize+1)], sigmaX, sigmaY, theta);
+                h = -elipHog([round(kernelSize+1),round(kernelSize+1)], sigmaX, sigmaY, theta);
                 h=h*sigmaX*sigmaY;
                 if sigmaX==sigmaY
                     FC=FC+h;

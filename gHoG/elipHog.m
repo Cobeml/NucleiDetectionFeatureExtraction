@@ -1,4 +1,4 @@
-function [h2] = elipLog(p2, sigma_x, sigma_y, theta)
+function [h2] = elipHog(p2, sigma_x, sigma_y, theta)
 
 % returns a rotational
 %   Determinant of Hessian of Gaussian filter of size HSIZE with standard deviation
