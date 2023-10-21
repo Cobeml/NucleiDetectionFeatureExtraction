@@ -19,7 +19,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-function MaingLoG_NucleiDec
+function MaingHoG_NucleiDec
 close all;
 clear all;
 
