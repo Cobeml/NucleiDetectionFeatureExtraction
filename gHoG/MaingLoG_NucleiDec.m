@@ -29,8 +29,12 @@ t = findstr(p,'/');
 p = p(1:t(end));
 addpath(p);
 cd(p);
-cd('Humayun');
+delete('seed_coordinates.mat');
+cd('images');
 list=dir('*.jpg');
+
+%% %% create list to store lists with seed coordinates for each image
+seed_coordinates=cell(length(list), 1);
 
 for index=1:length(list)
     filename=list(index).name;
@@ -65,10 +69,14 @@ for index=1:length(list)
     if ~isempty(ind1)
         cs(ind1,:)=[];
     end
+    %% add coordinates to list storing coordinates for each images
+    seed_coordinates{index} = cs;
     rs5=cs(:,1);cs5=cs(:,2);
     figure,imshow(I);
     hold on,plot(cs5,rs5,'r+','MarkerSize',2,'LineWidth',2);
 end
-
+%% %% save seed coordinates in gHoG folder
+cd('..');
+save('seed_coordinates.mat', 'seed_coordinates');
 end
 
